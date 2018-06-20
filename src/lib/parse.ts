@@ -12,7 +12,7 @@ import {
   getTls
 } from './utils';
 
-export function parseConfig(url: any): RedisConfig {
+export const parseConfig = (url: any): RedisConfig => {
   switch (true) {
     case isObject(url):
       return url;
@@ -36,4 +36,4 @@ export function parseConfig(url: any): RedisConfig {
     default:
       return undefined;
   }
-}
+};

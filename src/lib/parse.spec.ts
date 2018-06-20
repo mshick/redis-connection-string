@@ -80,3 +80,13 @@ test('get config (passed URL string, query params)', t => {
     tls: true
   });
 });
+
+test('rediss and ?tls=true are the same', t => {
+  const urlSsl = 'rediss://localhost:6542';
+  const urlTls = 'redis://localhost:6542?tls=true';
+
+  const parsedSsl = parseConfig(urlSsl);
+  const parsedTls = parseConfig(urlTls);
+
+  t.deepEqual(parsedSsl, parsedTls);
+});
